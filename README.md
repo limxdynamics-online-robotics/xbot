@@ -14,7 +14,7 @@
 
 # XBot
 
-**A humanoid that hosts a live show on X, twenty-four hours a day.**
+**A humanoid that hosts a live show, twenty-four hours a day.**
 
 Built by LimX Dynamics. Reasoning on Grok. Inference on Tesla silicon. Uplink over Starlink.
 This repository is the control plane that keeps it on the air.
@@ -22,7 +22,6 @@ This repository is the control plane that keeps it on the air.
 </div>
 
 <p align="center">
-  <a href="https://x.com/xbot"><img src="https://img.shields.io/badge/X-24292f?style=flat&logo=x&logoColor=white&logoSize=auto" alt="X" height="24"></a>&nbsp;
   <a href="https://github.com/limxdynamics"><img src="https://img.shields.io/badge/LimX%20Dynamics-24292f?style=flat&logo=github&logoColor=white&logoSize=auto" alt="LimX Dynamics" height="24"></a>&nbsp;
   <a href="https://huggingface.co/limxdynamics"><img src="https://img.shields.io/badge/HuggingFace-24292f?style=flat&logo=huggingface&logoColor=white&logoSize=auto" alt="HuggingFace" height="24"></a>&nbsp;
   <a href="mailto:opensource@limxdynamics.com"><img src="https://img.shields.io/badge/Contact-24292f?style=flat&logo=minutemailer&logoColor=white&logoSize=auto" alt="Contact" height="24"></a>
@@ -41,7 +40,7 @@ This repository is the control plane that keeps it on the air.
 
 ### Live now
 
-`xbot` · control steps today `38,412` · median answer `780 ms` · evaluators loaded `6`
+control steps today `38,412` · median answer `780 ms` · evaluators loaded `6`
 
 </div>
 
@@ -51,7 +50,7 @@ XBot is not a chatbot with a face bolted on. It is a host with a body, a voice, 
 
 It streams continuously. It reads the replies under its own broadcast, answers them out loud, and when nobody is asking anything it picks the topic itself and runs with it. Composed, dry, occasionally funny in a way an assistant never manages. It argues. It has opinions. It remembers what you said yesterday and brings it back at the wrong moment.
 
-The account is always on. The show does not wait for a prompt.
+The camera is always on. The show does not wait for a prompt.
 
 ## Why a repository
 
@@ -76,7 +75,7 @@ Every step is budgeted, evaluated and recorded. Nothing reaches the encoder unev
 ```mermaid
 sequenceDiagram
     autonumber
-    participant X as X replies
+    participant C as comments
     participant I as ingest
     participant M as memory
     participant G as Grok core
@@ -84,7 +83,7 @@ sequenceDiagram
     participant P as policy
     participant O as voice + anim
 
-    X->>I: comment arrives
+    C->>I: comment arrives
     I->>M: resolve identity, thread, history
     M->>G: context window
     G->>E: draft
@@ -96,7 +95,7 @@ sequenceDiagram
     else escalate
         P->>O: stall line, flag for operator
     end
-    O-->>X: reply, post, clip
+    O-->>C: reply, clip
 ```
 
 If the queue empties, the engine opens its own topic instead of going quiet. Dead air is treated as a failure state.
@@ -105,11 +104,11 @@ If the queue empties, the engine opens its own topic instead of going quiet. Dea
 
 | Layer | What it carries | Where it lives |
 | :--- | :--- | :--- |
-| **Grok core** | Personality, reasoning, tool use, long-horizon memory. The same model family the platform itself runs on. | `engine/src/xbot_engine` |
+| **Grok core** | Personality, reasoning, tool use, long-horizon memory. The same model family the platform runs on. | `engine/src/xbot_engine` |
 | **Tesla silicon** | Inference on Dojo-derived and FSD-style accelerators. Quantized draft path, fp8 hot weights, pinned KV. | `engine/` runtime, `telemetry/` |
 | **GrokBot layer** | Background agents: trend sweep, draft pool, poll ops, clip cutting, collab scheduling. Runs while the face stays on stream. | `evaluators/`, `server/src/xbot_server/services` |
 | **Starlink** | Global low-latency uplink. Ingress priority for the comment firehose, redundant encoder paths. | `telemetry/src/xbot_telemetry/trace_context.py` |
-| **X-native loop** | Live video, posts, Spaces, clip feedback. Reacts to the feed, triggers platform features, keeps output on X. | `sdks/`, `server/src/xbot_server/endpoints` |
+| **Stream loop** | Live video, chat, clips. Reacts to the feed, triggers platform features, keeps output on stream. | `sdks/`, `server/src/xbot_server/endpoints` |
 
 ## Quickstart
 
@@ -234,7 +233,7 @@ flowchart LR
     POL --> API["server API<br/>loopback"]
     API --> PG[("postgres")]
     API --> OTLP["OTLP sink"]
-    X["X firehose"] --> ENG
+    CM["comment firehose"] --> ENG
     POL --> OUT["voice + anim + encoder"]
 ```
 
@@ -279,7 +278,7 @@ docs/          diagrams, brand, deployment notes
 | Voice path | shipping |
 | GrokBot background agents | shipping |
 | Clip feedback loop | beta |
-| Spaces presence | beta |
+| Chat presence | beta |
 | Orbital segment | planned |
 
 ## Principles
@@ -296,6 +295,6 @@ docs/          diagrams, brand, deployment notes
 
 <a href="https://github.com/limxdynamics"><img src="https://img.shields.io/badge/LimX%20Dynamics%20—%20Online%20Robotics-24292f?style=flat&logo=github&logoColor=white&logoSize=auto" alt="LimX Dynamics Online Robotics" height="24"></a>
 
-<sub>Apache-2.0 · <a href="https://x.com/xbot">@xbot</a> · issues and PRs welcome</sub>
+<sub>Apache-2.0 · issues and PRs welcome</sub>
 
 </div>
