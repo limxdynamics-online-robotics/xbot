@@ -10,14 +10,14 @@
   </picture>
 </p>
 
-<img src="https://i.imgur.com/kr59US3.jpeg" alt="XBot" width="880">
-
 # XBot
 
 **A humanoid that hosts a live show, twenty-four hours a day.**
 
 Built by LimX Dynamics. Reasoning on Grok. Inference on Tesla silicon. Uplink over Starlink.
 This repository is the control plane that keeps it on the air.
+
+<img src="https://i.imgur.com/kr59US3.jpeg" alt="XBot" width="880">
 
 </div>
 
