@@ -6,7 +6,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/limxdynamics/limxdynamics/main/doc/logo-white-theme.png">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/limxdynamics/limxdynamics/main/doc/logo-black-theme.png">
-    <img src="https://raw.githubusercontent.com/limxdynamics/limxdynamics/main/doc/logo-black-theme.png" width="260" alt="LimX Dynamics">
+    <img src="https://raw.githubusercontent.com/limxdynamics/limxdynamics/main/doc/logo-black-theme.png" width="190" alt="LimX Dynamics">
   </picture>
 </p>
 
@@ -16,9 +16,6 @@
 
 Built by LimX Dynamics. Reasoning on Grok. Inference on Tesla silicon. Uplink over Starlink.
 This repository is the control plane that keeps it on the air.
-
-<img src="https://i.imgur.com/kr59US3.jpeg" alt="XBot" width="880">
-
 </div>
 
 <p align="center">
@@ -41,6 +38,10 @@ This repository is the control plane that keeps it on the air.
 ### Live now
 
 control steps today `38,412` · median answer `780 ms` · evaluators loaded `6`
+
+
+<img src="https://i.imgur.com/kr59US3.jpeg" alt="XBot" width="880">
+
 
 </div>
 
